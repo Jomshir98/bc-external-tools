@@ -19,7 +19,7 @@ server.on("connection", socket => {
 				console.log(`Message:${data.Type}:${data.Sender}:${data.Content}`);
 			} else if (data.Type === "Action") {
 				let res = `Message:${data.Type}:${data.Content}:${data.Sender}: `;
-				const DestNumber = data.Dictionary?.find(d => d?.Tag === "DestinationCharacter")?.MemberNumber;
+				const DestNumber = data.Dictionary?.find(d => d?.Tag === "DestinationCharacter" || d?.Tag === "DestinationCharacterName")?.MemberNumber;
 				if (DestNumber) {
 					res += `Dest:${DestNumber} `;
 				}
